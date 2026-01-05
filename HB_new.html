@@ -124,6 +124,21 @@
     .bg-slide.active {
         opacity: 1;
     }
+    /* Hide scrollbars for the ticker window while in manual mode */
+#tickerWindow::-webkit-scrollbar {
+    display: none;
+}
+
+/* Pause animation on hover for desktop users */
+#newsList:hover {
+    animation-play-state: paused;
+}
+
+/* Ensure the wrapper handles the transition smoothly */
+#newsWrapper.manual-mode {
+    border-color: #2563eb; /* blue-600 */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 overflow-x-hidden">
@@ -151,8 +166,14 @@
             <a href="#contact" class="bg-blue-800 text-white px-6 py-2.5 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-200/50">Contact</a>
         </div>
 
-        <div class="flex items-center gap-4 md:gap-8">
-            <img src="iitk_logo.jpg" alt="IITK Logo" class="h-12 md:h-14 w-auto object-contain opacity-100 transition">
+        <div class="flex items-center border-l pl-6 border-gray-100">
+            <div class="hidden md:block text-right mr-3">
+                <p class="text-[10px] font-bold text-gray-400 uppercase leading-none mb-1">Earth Sciences</p>
+                <p class="text-xs font-bold text-gray-700 leading-none">IIT Kanpur</p>
+            </div>
+            <img src="https://tse4.mm.bing.net/th/id/OIP.2zU0DA_C7_C1L-lB9ngspQAAAA?w=302&h=300&rs=1&pid=ImgDetMain&o=7&rm=3" 
+                 alt="IIT Kanpur Logo" 
+                 class="h-14 w-auto object-contain">
         </div>
 
     </div>
@@ -191,7 +212,7 @@
             </p>
 
             <div class="flex flex-wrap justify-center items-center gap-4 w-full">
-                <div class="flex items-center gap-2 bg-black/30 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/10 hover:border-blue-500 transition-all cursor-default group">
+                <div class="flex items-center gap-2 bg-black/30 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/10 hover:border-brown-500 transition-all cursor-default group">
                     <i class="fas fa-satellite text-brown-400 group-hover:scale-110 transition-transform"></i>
                     <span class="text-white text-[11px] font-black uppercase tracking-widest whitespace-nowrap">Remote Sensing</span>
                 </div>
@@ -203,7 +224,7 @@
                     <i class="fas fa-vial text-amber-400 group-hover:scale-110 transition-transform"></i>
                     <span class="text-white text-[11px] font-black uppercase tracking-widest whitespace-nowrap">Sedimentology</span>
                 </div>
-                <div class="flex items-center gap-2 bg-black/30 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/10 hover:border-amber-500 transition-all cursor-default group">
+                <div class="flex items-center gap-2 bg-black/30 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/10 hover:border-blue-500 transition-all cursor-default group">
                     <i class="fas fa-droplet text-blue-400 group-hover:scale-110 transition-transform"></i>
                     <span class="text-white text-[11px] font-black uppercase tracking-widest whitespace-nowrap">Hydrology</span>
                 </div>
@@ -331,173 +352,107 @@
         </div> </div>
 </section>
 <!-- updates and achivements -->
-<section id="highlights" class="py-24 bg-white overflow-hidden">
-    <div class="max-w-[1536px] mx-auto px-6 lg:px-16">
-        <div class="grid lg:grid-cols-12 gap-12 items-stretch">
+<section id="highlights" class="py-12 md:py-24 bg-white overflow-hidden">
+    <div class="max-w-[1536px] mx-auto px-4 md:px-6 lg:px-16">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12 items-stretch">
             
-            <div class="lg:col-span-7">
-                <div class="flex items-center gap-4 mb-8">
+            <div class="lg:col-span-7 w-full">
+                <div class="flex items-center gap-4 mb-6 md:mb-8">
                     <span class="w-10 h-px bg-blue-600"></span>
-                    <h3 class="text-2xl font-black text-slate-800 uppercase tracking-widest">Achievements</h3>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 uppercase tracking-widest">Achievements</h3>
                 </div>
                 
-                <div class="relative rounded-[40px] overflow-hidden shadow-2xl bg-slate-100 h-[500px]">
+                <div class="relative rounded-[30px] md:rounded-[40px] overflow-hidden shadow-2xl bg-slate-100 h-[450px] md:h-[500px]">
                     <div id="achievementSlider" class="flex h-full transition-transform duration-1000 ease-in-out">
+                        
                         <div class="min-w-full relative h-full">
                             <img src="achievement2.jpg" class="w-full h-full object-cover" alt="Achievement 2">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
-                            <div class="absolute bottom-12 left-12 right-12 text-white">
-                                <h4 class="text-3xl font-bold">Selected for the XVI Indian Scientific Expedition to Antarctica (Dec.’96-Mar’97)(1998)</h4>
+                            <div class="absolute bottom-8 left-6 right-6 md:bottom-12 md:left-12 md:right-12 text-white">
+                                <h4 class="text-xl md:text-3xl font-bold leading-tight">Selected for the XVI Indian Scientific Expedition to Antarctica (Dec.’96-Mar’97)(1998)</h4>
                             </div>
                         </div>
+
                         <div class="min-w-full relative h-full">
                             <img src="achievement2.jpg" class="w-full h-full object-cover" alt="Achievement 2">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
-                            <div class="absolute bottom-12 left-12 right-12 text-white">
-                                <h4 class="text-3xl font-bold">Anchored and directed a film on SAVE SOIL, USE FLYASH (2000, 17.20 minutes), produced by TV Centre, IIT Kanpur, sponsored by Flyash Mission, DST, New Delhi.</h4>
+                            <div class="absolute bottom-8 left-6 right-6 md:bottom-12 md:left-12 md:right-12 text-white">
+                                <h4 class="text-xl md:text-3xl font-bold leading-tight">Anchored and directed a film on SAVE SOIL, USE FLYASH (2000, 17.20 minutes), produced by TV Centre, IIT Kanpur...</h4>
                             </div>
                         </div>
+
                         <div class="min-w-full relative h-full">
                             <img src="achievement1.jpg" class="w-full h-full object-cover" alt="Achievement 1">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
-                            <div class="absolute bottom-12 left-12 right-12 text-white">
-                                <h4 class="text-3xl font-bold">Fellow, Indian Academy of Sciences, Bangalore (2021)</h4>
+                            <div class="absolute bottom-8 left-6 right-6 md:bottom-12 md:left-12 md:right-12 text-white">
+                                <h4 class="text-xl md:text-3xl font-bold leading-tight">Fellow, Indian Academy of Sciences, Bangalore (2021)</h4>
                             </div>
                         </div>
-                        <div class="min-w-full relative h-full">
-                            <img src="achievement2.jpg" class="w-full h-full object-cover" alt="Achievement 2">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
-                            <div class="absolute bottom-12 left-12 right-12 text-white">
-                                <h4 class="text-3xl font-bold">Fellow, National Academy of Sciences, Allahabad (2016)</h4>
-                            </div>
-                        </div>
-                        <div class="min-w-full relative h-full">
-                            <img src="achievement2.jpg" class="w-full h-full object-cover" alt="Achievement 2">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
-                            <div class="absolute bottom-12 left-12 right-12 text-white">
-                                <h4 class="text-3xl font-bold">Lalit Mohan Kapoor Chair, IIT Kanpur (2018-present)</h4>
-                            </div>
-                        </div>
-                        <div class="min-w-full relative h-full">
-                            <img src="achievement2.jpg" class="w-full h-full object-cover" alt="Achievement 2">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
-                            <div class="absolute bottom-12 left-12 right-12 text-white">
-                                <h4 class="text-3xl font-bold">Pandit Girish Ranjan and Sushma Rani Pathak Chair, IIT Kanpur (2014-16)</h4>
-                            </div>
-                        </div>
-                        <div class="min-w-full relative h-full">
-                            <img src="achievement2.jpg" class="w-full h-full object-cover" alt="Achievement 2">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
-                            <div class="absolute bottom-12 left-12 right-12 text-white">
-                                <h4 class="text-3xl font-bold">COFUND Senior Research Fellowship at Durham University (2014)</h4>
-                            </div>
-                        </div>
-                        <div class="min-w-full relative h-full">
-                            <img src="achievement2.jpg" class="w-full h-full object-cover" alt="Achievement 2">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
-                            <div class="absolute bottom-12 left-12 right-12 text-white">
-                                <h4 class="text-3xl font-bold">S.S. Merh Award for contributions in Quaternary Geology, Geological Society of India (2006)</h4>
-                            </div>
-                        </div>
-                        <div class="min-w-full relative h-full">
-                            <img src="achievement2.jpg" class="w-full h-full object-cover" alt="Achievement 2">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
-                            <div class="absolute bottom-12 left-12 right-12 text-white">
-                                <h4 class="text-3xl font-bold">National Mineral Award, Ministry of Mines, Govt. of India (2002)</h4>
-                            </div>
-                        </div>
-                        <div class="min-w-full relative h-full">
-                            <img src="achievement2.jpg" class="w-full h-full object-cover" alt="Achievement 2">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
-                            <div class="absolute bottom-12 left-12 right-12 text-white">
-                                <h4 class="text-3xl font-bold">Alexander von Humboldt Fellowship for post-doctoral research in Germany (2000)</h4>
-                            </div>
-                        </div>
-                        <div class="min-w-full relative h-full">
-                            <img src="achievement2.jpg" class="w-full h-full object-cover" alt="Achievement 2">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
-                            <div class="absolute bottom-12 left-12 right-12 text-white">
-                                <h4 class="text-3xl font-bold">Career Award for Young Teachers, All India Council for Technical Education (1998)</h4>
-                            </div>
-                        </div>
-                        <div class="min-w-full relative h-full">
-                            <img src="achievement2.jpg" class="w-full h-full object-cover" alt="Achievement 2">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
-                            <div class="absolute bottom-12 left-12 right-12 text-white">
-                                <h4 class="text-3xl font-bold">Lundgren Research Award & Cambridge Philosophical Society Research Award, Cambridge University, UK (1992)</h4>
-                            </div>
-                        </div>
-                        <div class="min-w-full relative h-full">
-                            <img src="achievement2.jpg" class="w-full h-full object-cover" alt="Achievement 2">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
-                            <div class="absolute bottom-12 left-12 right-12 text-white">
-                                <h4 class="text-3xl font-bold">Nehru Scholarship for doctoral research at Cambridge University, UK (1989)</h4>
-                            </div>
-                        </div>
-                        <div class="min-w-full relative h-full">
-                            <img src="achievement2.jpg" class="w-full h-full object-cover" alt="Achievement 2">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
-                            <div class="absolute bottom-12 left-12 right-12 text-white">
-                                <h4 class="text-3xl font-bold">University Gold Medal, M.Tech(1987)</h4>
-                            </div>
-                        </div>
-                        
 
-                        
-                    </div>
+                        <div class="min-w-full relative h-full">
+                            <img src="achievement2.jpg" class="w-full h-full object-cover" alt="Achievement 2">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
+                            <div class="absolute bottom-8 left-6 right-6 md:bottom-12 md:left-12 md:right-12 text-white">
+                                <h4 class="text-xl md:text-3xl font-bold leading-tight">Fellow, National Academy of Sciences, Allahabad (2016)</h4>
+                            </div>
+                        </div>
 
-                    <div class="absolute bottom-12 right-12 flex gap-3">
-                        <button onclick="moveAchievement(-1)" class="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-blue-600 transition-all flex items-center justify-center">
+                        </div>
+
+                    <div class="absolute bottom-6 right-6 md:bottom-12 md:right-12 flex gap-2 md:gap-3">
+                        <button onclick="moveAchievement(-1)" class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-blue-600 transition-all flex items-center justify-center">
                             <i class="fas fa-arrow-left"></i>
                         </button>
-                        <button onclick="moveAchievement(1)" class="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-blue-600 transition-all flex items-center justify-center">
+                        <button onclick="moveAchievement(1)" class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-blue-600 transition-all flex items-center justify-center">
                             <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div class="lg:col-span-5 flex flex-col">
-                <div class="flex items-center gap-4 mb-8">
+            <div class="lg:col-span-5 flex flex-col w-full">
+                <div class="flex items-center gap-4 mb-6 md:mb-8">
                     <span class="w-10 h-px bg-blue-600"></span>
-                    <h3 class="text-2xl font-black text-slate-800 uppercase tracking-widest">Latest News</h3>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 uppercase tracking-widest">Latest News</h3>
                 </div>
 
-                <div id="newsWrapper" class="bg-slate-50 rounded-[40px] border border-slate-200 p-8 flex-grow relative overflow-hidden transition-all duration-500">
+                <div id="newsWrapper" class="bg-slate-50 rounded-[30px] md:rounded-[40px] border border-slate-200 p-6 md:p-8 flex-grow relative overflow-hidden flex flex-col">
                     
                     <div id="tickerWindow" class="news-ticker-container h-[420px] overflow-hidden relative">
-                        <div id="newsList" class="space-y-6 absolute w-full animate-scroll-up">
-                            <div class="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm hover:border-blue-400 transition-all">
+                        <div id="newsList" class="space-y-4 md:space-y-6 absolute w-full animate-scroll-up hover:pause">
+                            
+                            <div class="p-5 md:p-6 bg-white rounded-2xl md:rounded-3xl border border-slate-100 shadow-sm hover:border-blue-400 transition-all">
                                 <span class="text-blue-500 text-[10px] font-black uppercase tracking-widest">Jan 2026</span>
-                                <h5 class="font-bold text-slate-900 mt-2">Article on River Sustainability published by VIF, a New Delhi-based Think
-                                    tank set up by some of India’s top bureaucrats.</h5>
+                                <h5 class="font-bold text-slate-900 mt-2 text-sm md:text-base leading-snug">Article on River Sustainability published by VIF, a New Delhi-based Think tank set up by some of India’s top bureaucrats.</h5>
                             </div>
-                            <div class="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm hover:border-blue-400 transition-all">
+
+                            <div class="p-5 md:p-6 bg-white rounded-2xl md:rounded-3xl border border-slate-100 shadow-sm hover:border-blue-400 transition-all">
                                 <span class="text-blue-500 text-[10px] font-black uppercase tracking-widest">Dec 2025</span>
-                                <h5 class="font-bold text-slate-900 mt-2">NMCG Report Calls for River-Specific Sand Mining Guidelines Following Release by Minister Sri C R Patil</h5>
+                                <h5 class="font-bold text-slate-900 mt-2 text-sm md:text-base leading-snug">NMCG Report Calls for River-Specific Sand Mining Guidelines Following Release by Minister Sri C R Patil</h5>
                             </div>
-                            <div class="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm hover:border-blue-400 transition-all">
+
+                            <div class="p-5 md:p-6 bg-white rounded-2xl md:rounded-3xl border border-slate-100 shadow-sm hover:border-blue-400 transition-all">
                                 <span class="text-blue-500 text-[10px] font-black uppercase tracking-widest">Nov 2025</span>
-                                <h5 class="font-bold text-slate-900 mt-2">Supported by the National Mission for Clean Ganga (NMCG), this initiative marks a critical step toward revitalizing river health through the scientific assessment and restoration of environmental flows in the Kosi, Gandak, and Mahanadi rivers.</h5>
+                                <h5 class="font-bold text-slate-900 mt-2 text-sm md:text-base leading-snug">Supported by the National Mission for Clean Ganga (NMCG), this initiative marks a critical step toward revitalizing river health...</h5>
                             </div>
-                            <div class="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm hover:border-blue-400 transition-all">
+
+                            <div class="p-5 md:p-6 bg-white rounded-2xl md:rounded-3xl border border-slate-100 shadow-sm hover:border-blue-400 transition-all">
                                 <span class="text-blue-500 text-[10px] font-black uppercase tracking-widest">Nov 2025</span>
-                                <h5 class="font-bold text-slate-900 mt-2">
-                                <a href="https://www.currentscience.ac.in/Volumes/128/11/1067.pdf" class="underline decoration-slate-300 underline-offset-4 hover:decoration-blue-500 hover:text-blue-600 transition-all">
-                                    Restoring the Past Glory of the Yamuna: Editorial in Current Science Outlines a Sustainable Strategy for River Health.
-                                </a>
+                                <h5 class="font-bold text-slate-900 mt-2 text-sm md:text-base leading-snug">
+                                    <a href="https://www.currentscience.ac.in/Volumes/128/11/1067.pdf" class="underline decoration-slate-300 underline-offset-4 hover:decoration-blue-500 hover:text-blue-600 transition-all">
+                                        Restoring the Past Glory of the Yamuna: Editorial in Current Science Outlines a Sustainable Strategy for River Health.
+                                    </a>
                                 </h5>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="mt-8 border-t border-slate-200 pt-6">
-                        <button onclick="toggleArchive()" class="text-blue-600 font-bold text-sm flex items-center gap-2 hover:gap-4 transition-all outline-none">
+                    <div class="mt-auto pt-6 border-t border-slate-200">
+                        <button onclick="toggleArchive()" class="text-blue-600 font-bold text-sm flex items-center gap-2 hover:gap-4 transition-all">
                             <span>View All Archive</span> 
-                            <i id="archiveIcon" class="fas fa-arrow-right text-xs transition-transform duration-300"></i>
+                            <i id="archiveIcon" class="fas fa-arrow-right text-xs"></i>
                         </button>
                     </div>
-                    
                 </div>
             </div>
 
@@ -742,10 +697,6 @@
             </div>
 
         </div>
-        
-        <div class="mt-16 text-center">
-             <a href="#" class="inline-block bg-white text-slate-900 px-10 py-4 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-blue-600 hover:text-white transition-all shadow-xl">View All Projects</a>
-        </div>
     </div>
 </section>
 
@@ -808,7 +759,7 @@
                         <div class="w-20 h-20 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4">AY</div>
                         <h4 class="font-bold text-slate-900">Ankit Yadav</h4>
                         <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-widest">Sediment dynamics</p>
-                        <p class="text-[11px] text-slate-500 mt-3 leading-relaxed">Estimating soil moisture & crop water stress in Ganga CZO.</p>
+                        <p class="text-[11px] text-slate-500 mt-3 leading-relaxed">Sediment dynamics and Cascading Hazards.</p>
                     </div>
                 </div>
 
@@ -816,8 +767,8 @@
                     <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex flex-col items-center text-center h-full">
                         <div class="w-20 h-20 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4">SS</div>
                         <h4 class="font-bold text-slate-900">Sarita Sahoo</h4>
-                        <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-widest">Hyperspectral RS</p>
-                        <p class="text-[11px] text-slate-500 mt-3 leading-relaxed">Estimating soil moisture & crop water stress in Ganga CZO.</p>
+                        <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-widest">Hyperspectral Remote Sensing</p>
+                        <p class="text-[11px] text-slate-500 mt-3 leading-relaxed">Shoreline Dynamics and implication on chilika wetland's stability.</p>
                     </div>
                 </div>
 
@@ -825,8 +776,17 @@
                     <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex flex-col items-center text-center h-full">
                         <div class="w-20 h-20 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4">AV</div>
                         <h4 class="font-bold text-slate-900">Ajusree VK</h4>
-                        <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-widest">Hydrology</p>
-                        <p class="text-[11px] text-slate-500 mt-3 leading-relaxed">Estimating soil moisture & crop water stress in Ganga CZO.</p>
+                        <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-widest">Hydrology and Remote Sensing</p>
+                        <p class="text-[11px] text-slate-500 mt-3 leading-relaxed">Hydrology and Remote Sensing.</p>
+                    </div>
+                </div>
+
+                <div class="min-w-full sm:min-w-[50%] lg:min-w-[25%] p-3">
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex flex-col items-center text-center h-full">
+                        <div class="w-20 h-20 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4">AR</div>
+                        <h4 class="font-bold text-slate-900">Atmika Ray</h4>
+                        <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-widest">River Sciences</p>
+                        <p class="text-[11px] text-slate-500 mt-3 leading-relaxed">Spatial temporal dynamics of riverine islands.</p>
                     </div>
                 </div>
 
@@ -835,7 +795,7 @@
                         <div class="w-20 h-20 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4">SK</div>
                         <h4 class="font-bold text-slate-900">Shefali Kuril</h4>
                         <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-widest">Agricultural Monitoring</p>
-                        <p class="text-[11px] text-slate-500 mt-3 leading-relaxed">Estimating soil moisture & crop water stress in Ganga CZO.</p>
+                        <p class="text-[11px] text-slate-500 mt-3 leading-relaxed">Thermal imaging in agriculture-dominated CZO in Ganga basin.</p>
                     </div>
                 </div>
 
@@ -1060,8 +1020,8 @@
                     <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex flex-col items-center text-center h-full card-hover hover:border-blue-200 transition-all">
                         <div class="w-20 h-20 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4">AT</div>
                         <h4 class="font-bold text-slate-900">Aayush Tiwari</h4>
-                        <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-widest">CZO Modeling</p>
-                        <p class="text-[11px] text-slate-500 mt-3 leading-relaxed">Estimating soil moisture & crop water stress in Ganga CZO.</p>
+                        <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-widest">Morphology</p>
+                        <p class="text-[11px] text-slate-500 mt-3 leading-relaxed">Morphological study of the smooth impact melt deposits on the Moon's far side.</p>
                     </div>
                 </div>
 
@@ -1070,7 +1030,7 @@
                         <div class="w-20 h-20 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4">AY</div>
                         <h4 class="font-bold text-slate-900">Ankit Yadav</h4>
                         <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-widest">Active Remote sensing</p>
-                        <p class="text-[11px] text-slate-500 mt-3 leading-relaxed">Estimating soil moisture & crop water stress in Ganga CZO.</p>
+                        <p class="text-[11px] text-slate-500 mt-3 leading-relaxed">Active Remote sensing.</p>
                     </div>
                 </div>
 
@@ -1078,8 +1038,8 @@
                     <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex flex-col items-center text-center h-full card-hover hover:border-blue-200 transition-all">
                         <div class="w-20 h-20 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4">SK</div>
                         <h4 class="font-bold text-slate-900">Shefali Kuril</h4>
-                        <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-widest">Agricultural Monitoring</p>
-                        <p class="text-[11px] text-slate-500 mt-3 leading-relaxed">Estimating soil moisture & crop water stress in Ganga CZO.</p>
+                        <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-widest">Agriculture</p>
+                        <p class="text-[11px] text-slate-500 mt-3 leading-relaxed">Agricultural Monitoring, CZO, Ganga Basin.</p>
                     </div>
                 </div>
 
@@ -1803,33 +1763,65 @@ let currentSlide = 0;
     setInterval(() => moveAchievement(1), 5000);
 
 // Achievement Slider Logic
-// --- Achievement Slider Variable ---
-    let achievementPos = 0;
-    function moveAchievement(step) {
-        const slider = document.getElementById('achievementSlider');
-        const total = slider.children.length;
-        achievementPos = (achievementPos + step + total) % total;
-        slider.style.transform = `translateX(-${achievementPos * 100}%)`;
-    }
-    setInterval(() => moveAchievement(1), 6000);
+// --- Achievement Slider Logic ---
+let achievementPos = 0;
+const slider = document.getElementById('achievementSlider');
+const totalSlides = slider.children.length;
 
-    // --- News Archive Logic ---
-    function toggleArchive() {
-        const wrapper = document.getElementById('newsWrapper');
-        const icon = document.getElementById('archiveIcon');
-        
-        // Toggle the manual state
-        const isManual = wrapper.classList.toggle('manual-mode');
-        
-        if (isManual) {
-            // State 1: Stop auto-scroll, allow manual scroll without scrollbar
-            icon.style.transform = 'rotate(90deg)';
-        } else {
-            // State 2: Deactivate manual scroll, reactivate auto-scroll
-            icon.style.transform = 'rotate(0deg)';
-            document.getElementById('tickerWindow').scrollTop = 0;
-        }
+function moveAchievement(step) {
+    achievementPos = (achievementPos + step + totalSlides) % totalSlides;
+    slider.style.transform = `translateX(-${achievementPos * 100}%)`;
+}
+
+// Auto-slide every 6 seconds
+let sliderInterval = setInterval(() => moveAchievement(1), 6000);
+
+// Reset timer on manual click to prevent double-jumping
+function manualMove(step) {
+    clearInterval(sliderInterval);
+    moveAchievement(step);
+    sliderInterval = setInterval(() => moveAchievement(1), 6000);
+}
+
+// TOUCH SUPPORT: Swipe functionality for mobile/tablets
+let touchStartX = 0;
+let touchEndX = 0;
+
+slider.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX);
+slider.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchStartX - touchEndX > 50) manualMove(1);  // Swipe Left
+    if (touchEndX - touchStartX > 50) manualMove(-1); // Swipe Right
+});
+
+
+// --- News Archive Logic ---
+function toggleArchive() {
+    const wrapper = document.getElementById('newsWrapper');
+    const tickerList = document.getElementById('newsList');
+    const tickerWindow = document.getElementById('tickerWindow');
+    const icon = document.getElementById('archiveIcon');
+    
+    // Toggle manual-mode class for CSS styling
+    const isManual = wrapper.classList.toggle('manual-mode');
+    
+    if (isManual) {
+        // Stop animation and allow manual scrolling
+        tickerList.style.animation = 'none';
+        tickerList.style.position = 'relative';
+        tickerWindow.style.overflowY = 'auto'; // Enable touch/mouse scroll
+        tickerWindow.style.scrollbarWidth = 'none'; // Hide scrollbar for Firefox
+        tickerWindow.style['-ms-overflow-style'] = 'none'; // Hide scrollbar for IE
+        icon.style.transform = 'rotate(90deg)';
+    } else {
+        // Restart auto-animation
+        tickerList.style.animation = 'scrollUp 30s linear infinite';
+        tickerList.style.position = 'absolute';
+        tickerWindow.style.overflowY = 'hidden';
+        tickerWindow.scrollTop = 0;
+        icon.style.transform = 'rotate(0deg)';
     }
+}
 // home page background slider
 // Configuration
     const labImages = [
